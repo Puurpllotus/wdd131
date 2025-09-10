@@ -1,0 +1,62 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column; /* Stack header, main/aside, footer vertically */
+    min-height: 100vh; /* Ensure body takes full viewport height */
+}
+
+header {
+    background-color: #333; /* Dark background for header */
+    color: white;
+    padding: 20px;
+    text-align: left;
+}
+
+nav {
+    background-color: #555; /* Slightly lighter background for navigation */
+    padding: 10px 0;
+}
+
+.navigation {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex; /* Arrange navigation links horizontally */
+    justify-content: space-around; /* Distribute links evenly */
+}
+
+.navigation li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+}
+
+.navigation li a:hover {
+    background-color: #777; /* Hover effect for navigation links */
+}
+
+.content-wrapper {
+    display: flex; /* Arrange main and aside content side-by-side */
+    flex: 1; /* Allow content-wrapper to take up remaining vertical space */
+}
+
+main {
+    background-color: #ccc; /* Light grey for main content */
+    padding: 20px;
+    flex: 3; /* Main content takes up more space than aside */
+}
+
+.right-sidebar {
+    background-color: #f4f4f4; /* White/off-white for aside content */
+    padding: 20px;
+    flex: 1; /* Aside content takes up less space */
+}
+
+footer {
+    background-color: #333; /* Dark background for footer */
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
