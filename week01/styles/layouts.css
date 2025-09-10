@@ -2,19 +2,19 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
     display: flex;
-    flex-direction: column; /* Stack header, main/aside, footer vertically */
-    min-height: 100vh; /* Ensure body takes full viewport height */
+    flex-direction: column; 
+    min-height: 100vh; 
 }
 
 header {
-    background-color: #333; /* Dark background for header */
+    background-color: #333;
     color: white;
     padding: 20px;
     text-align: left;
 }
 
 nav {
-    background-color: #555; /* Slightly lighter background for navigation */
+    background-color: #555; 
     padding: 10px 0;
 }
 
@@ -22,8 +22,8 @@ nav {
     list-style: none;
     margin: 0;
     padding: 0;
-    display: flex; /* Arrange navigation links horizontally */
-    justify-content: space-around; /* Distribute links evenly */
+    display: flex; 
+    justify-content: space-around;
 }
 
 .navigation li a {
@@ -34,28 +34,28 @@ nav {
 }
 
 .navigation li a:hover {
-    background-color: #777; /* Hover effect for navigation links */
+    background-color: #777;
 }
 
 .content-wrapper {
-    display: flex; /* Arrange main and aside content side-by-side */
-    flex: 1; /* Allow content-wrapper to take up remaining vertical space */
+    display: flex;
+    flex: 1; 
 }
 
 main {
-    background-color: #ccc; /* Light grey for main content */
+    background-color: #ccc;
     padding: 20px;
-    flex: 3; /* Main content takes up more space than aside */
+    flex: 3;
 }
 
 .right-sidebar {
-    background-color: #f4f4f4; /* White/off-white for aside content */
+    background-color: #f4f4f4;
     padding: 20px;
-    flex: 1; /* Aside content takes up less space */
+    flex: 1;
 }
 
 footer {
-    background-color: #333; /* Dark background for footer */
+    background-color: #333;
     color: white;
     padding: 20px;
     text-align: center;
