@@ -1,0 +1,164 @@
+:root {
+  --primary-color: #003366;
+  --secondary-color: #333;
+  --accent-color: #FDB813;
+  --light-gray: #f4f4f9;
+  --text-dark: #333;
+  --text-light: #fff;
+  --max-width: 1200px;
+  --body-font: 'Roboto', Arial, sans-serif;
+}
+
+* { 
+  box-sizing: border-box; 
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--body-font);
+  color: var(--text-dark);
+  background-color: var(--light-gray);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+header {
+  text-align: center;
+}
+
+#course-title {
+  display: block;
+  background-color: var(--primary-color);
+  color: var(--text-light);
+  padding: 1rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+nav {
+  background-color: var(--secondary-color);
+  display: flex;
+  justify-content: space-around;
+  padding: 0.75rem 0;
+}
+
+nav a {
+  color: var(--text-light);
+  text-decoration: none;
+  font-weight: 700;
+  padding: 0.5rem 1rem;
+  transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  text-decoration: underline;
+}
+
+main {
+  max-width: var(--max-width);
+  margin: 1.5rem auto;
+  padding: 0 1rem;
+}
+
+main h1 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: var(--primary-color);
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1.5rem;
+}
+
+.card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+.card h2 {
+  background-color: var(--primary-color);
+  color: var(--text-light);
+  padding: 0.75rem;
+  font-size: 1.2rem;
+  text-align: left;
+}
+
+.card h3 {
+    margin: 1rem;
+    border-bottom: 2px solid var(--light-gray);
+    padding-bottom: 0.5rem;
+}
+
+.card p, .card ul {
+    padding: 0 1rem;
+    line-height: 1.6;
+}
+
+.about-content, .country-info {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 1rem;
+    align-items: start;
+    padding: 1rem;
+}
+
+.country-info {
+    grid-template-columns: auto 1fr;
+}
+
+.profile-picture {
+    width: 150px;
+    border-radius: 5px;
+}
+
+.flag-image {
+    width: 120px;
+    border: 1px solid #ccc;
+}
+
+.resources-list {
+  list-style-position: inside;
+  padding-bottom: 1rem;
+}
+
+.resources-list a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+.resources-list a:hover {
+  text-decoration: underline;
+}
+
+footer {
+  background-color: var(--primary-color);
+  color: var(--text-light);
+  text-align: center;
+  padding: 1rem 0;
+  margin-top: 2rem;
+}
+
+#lastModified {
+  color: var(--accent-color);
+  font-size: 0.9rem;
+  margin-top: 0.25rem;
+}
+
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+  }
+  
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+}

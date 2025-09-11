@@ -1,0 +1,239 @@
+/* ===========================
+   Base / Typography / Colors
+   =========================== */
+:root{
+  --primary-blue: #1f487c;
+  --nav-dark: #333333;
+  --accent-yellow: #ffcc00;
+  --card-border: #d8d8d8;
+  --max-width: 1200px;
+  --body-font: 'Open Sans', Arial, sans-serif;
+  --heading-font: 'Merriweather', serif;
+}
+
+* { box-sizing: border-box; }
+html,body { height:100%; }
+body {
+  margin: 0;
+  font-family: var(--body-font);
+  color: #222;
+  background: #f4f4f4;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* utility */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* visually hidden (accessible) */
+.visually-hidden {
+  position: absolute !important;
+  height: 1px; width: 1px;
+  overflow: hidden; clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
+}
+
+/* ===========================
+   Header
+   =========================== */
+.site-header {
+  background: var(--primary-blue);
+  color: #fff;
+  border-bottom: 3px solid rgba(0,0,0,0.08);
+}
+.header-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 18px 0;
+  gap: 6px;
+}
+
+/* required span must display:block so we can center it easily */
+#course-title {
+  display: block;
+  font-family: var(--heading-font);
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: .2px;
+  color: #fff;
+}
+
+/* secondary title line */
+.page-title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+}
+.student-name { color: var(--accent-yellow); font-weight: 800; }
+
+/* ===========================
+   Navigation (flex)
+   =========================== */
+.main-nav { background: var(--nav-dark); }
+.nav-inner { padding: 10px 0; }
+
+/* flex nav inside the centered container */
+.nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  align-items: center;
+}
+
+.nav-list a {
+  display: inline-block;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: background-color .18s ease, transform .08s ease;
+  font-size: 15px;
+}
+
+/* tasteful hover (background + subtle raise) */
+.nav-list a:hover,
+.nav-list a:focus {
+  background: rgba(255,255,255,0.08);
+  transform: translateY(-1px);
+  outline: none;
+}
+
+/* ===========================
+   Main / Grid Layout for cards
+   =========================== */
+.main-content { padding: 26px 0 40px; }
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr; /* about area wider, resources narrower */
+  gap: 20px;
+  align-items: start;
+}
+
+/* Card common */
+.card {
+  background: #fff;
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+}
+
+/* full-width blue header attached to card top */
+.card-header {
+  background: var(--primary-blue);
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 8px 8px 0 0;
+  text-align: center;
+  font-family: var(--heading-font);
+  font-weight: 700;
+}
+
+/* card body */
+.card-body {
+  padding: 18px;
+  line-height: 1.6;
+}
+
+/* specific about styles */
+.about-body .lead {
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-size: 1rem;
+}
+
+/* profile picture floated right so text wraps as in the example */
+.profile-picture {
+  width: 180px;
+  max-width: 40%;
+  float: right;
+  margin: 0 0 12px 16px;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+}
+
+/* location block styling */
+.location-info {
+  margin-top: 18px;
+  border-top: 1px solid #eee;
+  padding-top: 18px;
+}
+
+.location-info h4 {
+  margin: 0 0 12px 0;
+  font-family: var(--heading-font);
+  color: var(--primary-blue);
+  text-align: center;
+}
+
+/* flag figure */
+.flag-figure {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.flag-image {
+  width: 120px;
+  height: auto;
+  border: 1px solid #ccc;
+  display: block;
+}
+
+.flag-figure figcaption {
+  font-style: italic;
+  color: #666;
+  align-self: center;
+}
+
+/* resources list */
+.resources-list {
+  margin: 0;
+  padding-left: 18px;
+  list-style: disc;
+}
+.resources-list a {
+  color: var(--primary-blue);
+  text-decoration: none;
+  font-weight: 600;
+}
+.resources-list a:hover,
+.resources-list a:focus {
+  text-decoration: underline;
+}
+
+/* ===========================
+   Footer
+   =========================== */
+.site-footer {
+  background: var(--primary-blue);
+  color: #fff;
+  padding: 16px 0;
+  border-top: 3px solid rgba(0,0,0,0.06);
+}
+.footer-inner { text-align: center; }
+#currentyear { font-weight: 700; }
+#lastModified { color: var(--accent-yellow); font-weight: 700; margin-top: 6px; }
+
+/* ===========================
+   Responsive
+   =========================== */
+@media (max-width: 880px) {
+  .cards-grid { grid-template-columns: 1fr; }
+  .profile-picture { float: none; display:block; margin: 12px auto; width: 220px; }
+  .nav-list { gap: 12px; flex-wrap: wrap; justify-content:center; }
+}
