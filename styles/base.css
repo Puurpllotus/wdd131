@@ -30,23 +30,6 @@ header {
   text-align: center;
 }
 
-/* New style for the H1 in the header */
-header h1 {
-  background-color: var(--primary-color);
-  color: var(--text-light);
-  padding: 1rem;
-  font-size: 1.5rem;
-  font-weight: 700;
-}
-
-/* Styles the span inside the H1 */
-.header-name {
-  color: var(--accent-color); /* Uses the yellow accent color */
-  font-weight: 400; /* Makes the name slightly less bold than the title */
-  font-size: 1.2rem; /* Makes the name slightly smaller */
-}
-
-
 #course-title {
   display: block;
   background-color: var(--primary-color);
