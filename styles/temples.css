@@ -1,0 +1,117 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Winky Sans', sans-serif;
+    background-color: #fff;
+    color: #333;
+}
+
+header {
+    background-color: #ffc0cb; /* Pink */
+    color: #333;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#menu-button {
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #333;
+}
+
+#menu-button::before {
+    content: "☰";
+}
+
+#menu-button.open::before {
+    content: "❌";
+}
+
+nav {
+    display: none;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background-color: #ffc0cb;
+}
+
+nav.open {
+    display: block;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+}
+
+nav a {
+    display: block;
+    padding: 1rem;
+    text-decoration: none;
+    color: #333;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+    background-color: #800080; /* Purple */
+    color: white;
+}
+
+main {
+    max-width: 960px;
+    margin: 1rem auto;
+    padding: 1rem;
+}
+
+h1, h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+    font-family: 'Romanesco', cursive;
+    font-size: 2.5rem;
+    color: #333;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+figure {
+    background-color: white;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+figure img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+figcaption {
+    text-align: center;
+    padding: 0.75rem;
+    font-weight: bold;
+}
+
+footer {
+    background-color: #ffc0cb; /* Pink */
+    color: #333;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 1rem;
+}
+

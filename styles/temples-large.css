@@ -1,0 +1,30 @@
+#menu-button {
+    display: none;
+}
+
+nav {
+    display: flex;
+    position: static;
+    width: auto;
+    background-color: transparent;
+}
+
+nav ul {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+nav a {
+    border-radius: 5px;
+}
+
+nav a:hover {
+    background-color: #800080;
+    color: white;
+}
+
+.gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+}
+
