@@ -60,6 +60,7 @@ nav a {
     text-decoration: none;
     color: #333;
     text-align: center;
+    font-weight: bold;
     transition: background-color 0.3s ease;
 }
 
@@ -78,7 +79,7 @@ h1, h2 {
     text-align: center;
     margin-bottom: 1rem;
     font-family: 'Romanesco', cursive;
-    font-size: 2.5rem;
+    font-size: 3.5rem;
     color: #333;
 }
 
@@ -113,5 +114,6 @@ footer {
     text-align: center;
     padding: 1rem;
     margin-top: 1rem;
+    font-weight: bold;
 }
 
