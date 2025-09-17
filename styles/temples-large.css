@@ -7,6 +7,7 @@ nav {
     position: static;
     width: auto;
     background-color: transparent;
+    font-weight: bold;
 }
 
 nav ul {
