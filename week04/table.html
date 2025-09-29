@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>School timetable</title>
+    </head>
+     <style>
+    html {
+      font-family: sans-serif;
+    }
+
+    table {
+      border-collapse: collapse;
+      border: 2px solid rgb(200,200,200);
+      letter-spacing: 1px;
+      font-size: 0.8rem;
+    }
+
+    td, th {
+      border: 1px solid rgb(190,190,190);
+      padding: 10px 20px;
+    }
+
+    td {
+      text-align: center;
+    }
+
+    caption {
+      padding: 10px;
+    }
+    </style>
+   <table>
+  <thead>
+  <tr>
+    <th></th>
+    <th></th>
+    <th id="clothes" colspan="3">Clothes</th>
+  </tr>
+  <tr>
+    <th></th>
+    <th></th>
+    <th id="trousers" headers="clothes">Trousers</th>
+    <th id="skirts" headers="clothes">Skirts</th>
+    <th id="dresses" headers="clothes">Dresses</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <th id="belgium" rowspan="2">Belgium</th>
+    <th id="antwerp" headers="belgium">Antwerp</th>
+    <td headers="belgium antwerp clothes trousers">56</td>
+    <td headers="belgium antwerp clothes skirts">22</td>
+    <td headers="belgium antwerp clothes dresses">43</td>
+  </tr>
+  <tr>
+    <th id="ghent" headers="belgium">Ghent</th>
+    <td headers="belgium ghent clothes trousers">41</td>
+    <td headers="belgium ghent clothes skirts">17</td>
+    <td headers="belgium ghent clothes dresses">35</td>
+  </tr>
+</tbody>
+</table>

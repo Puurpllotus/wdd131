@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lazy Load Activity</title>
+    <meta name="description" content="A demonstration of native lazy loading for images.">
+    <meta name="author" content="Your Name Here">
+    <link rel="stylesheet" href="styles/lazy-loading.css">
+</head>
+<body>
+    <header>
+        <h1>Lazy Loading Images</h1>
+    </header>
+    <main>
+         <picture>
+            <img src="https://picsum.photos/400/600?random=1&category=flowers" alt="A beautiful flower" loading="lazy" width="400" height="600">
+        </picture>
+        <picture>
+            <img src="https://picsum.photos/400/600?random=2&category=flowers" alt="A beautiful flower" loading="lazy" width="400" height="600">
+        </picture>
+        <picture>
+            <img src="https://picsum.photos/400/600?random=3&category=flowers" alt="A beautiful flower" loading="lazy" width="400" height="600">
+        </picture>
+        <picture>
+            <img src="https://picsum.photos/400/600?random=4&category=flowers" alt="A beautiful flower" loading="lazy" width="400" height="600">
+        </picture>
+        <picture>
+            <img src="https://picsum.photos/400/600?random=5&category=flowers" alt="A beautiful flower" loading="lazy" width="400" height="600">
+        </picture>
+        <picture>
+            <img src="https://picsum.photos/400/600?random=6&category=flowers" alt="A beautiful flower" loading="lazy" width="400" height="600">
+        </picture>
+    </main>
+    <footer>
+        <p>&copy;<span id="current-year"></span> | Lazy Load Activity | WDD 131 | Sampson Longjohn</p>
+        <p>Last Modification: <span id="last-modified"></span></p>
+    </footer>
+    <script src="scripts/lazy-loading.js"></script>
+</body>
+</html>

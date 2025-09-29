@@ -1,0 +1,47 @@
+/* Basic body and typography styling */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content horizontally */
+    min-height: 100vh;
+    margin: 0;
+}
+
+header, footer {
+    width: 100%;
+    text-align: center;
+    background-color: #333;
+    color: white;
+    padding: 1rem 0;
+}
+
+main {
+    max-width: 800px;
+    width: 100%;
+    padding: 1rem;
+    flex: 1;
+}
+
+h1 {
+    margin: 1rem 0 2rem 0;
+}
+
+/* Image styling and animation */
+picture {
+    display: block; /* Makes the picture element a block */
+    margin: 2rem auto; /* Centers the picture and adds space */
+    background-color: #000; /* Black background for the fade effect */
+    animation: fadeIn 9.5s; /* Apply the fadeIn animation */
+    width: 400px; /* Set a fixed width */
+}
+
+/* Keyframes define the animation steps */
+@keyframes fadeIn {
+    from {
+        opacity: 0; /* Start fully transparent */
+    }
+    to {
+        opacity: 1; /* End fully opaque */
+    }
+}

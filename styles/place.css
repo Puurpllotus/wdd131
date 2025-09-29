@@ -1,108 +1,160 @@
+/* The :root pseudo-class targets the root element of the document (the <html> tag). */
+/* It's the best place to declare global CSS variables (custom properties) that can be reused throughout the stylesheet. */
 :root {
+    /* --primary-color: A variable storing the main red theme color. */
     --primary-color: #BC002D;
+    /* --secondary-color: A variable for the dark grey used in accents and backgrounds. */
     --secondary-color: #3d3d3d;
+    /* --background-color: A variable for the page's main light background. */
     --background-color: #F7F7F7;
+    /* --text-color: The default color for most text on the page. */
     --text-color: #2c2c2c;
+    /* --light-text-color: White, used for text on dark backgrounds like the header and footer. */
     --light-text-color: #FFFFFF;
+    /* --card-background-mobile: The solid white background for cards in the mobile view. */
     --card-background-mobile: #FFFFFF;
+    /* --card-background-desktop: A semi-transparent white for the desktop view, creating a frosted glass effect. */
     --card-background-desktop: rgba(255, 255, 255, 0.6);
+    /* --font-heading: The specific font family for major headings. */
     --font-heading: 'Shippori Mincho', serif;
+    /* --font-body: The font family for all other text content. */
     --font-body: 'Noto Sans JP', sans-serif;
 }
 
+/* The universal selector (*) targets every single element on the page, including pseudo-elements (::before, ::after). */
+/* This is a common CSS "reset" to create a consistent base style across all browsers. */
 *,
 *::before,
 *::after {
+    /* This changes the box model so that an element's padding and border are included in its total width and height. */
     box-sizing: border-box;
+    /* Removes any default browser margins from all elements. */
     margin: 0;
+    /* Removes any default browser padding from all elements. */
     padding: 0;
 }
 
+/* These are the base styles for the <body> element, which acts as the main container for all visible content. */
 body {
+    /* Sets the default font for the page, using the variable defined in :root. */
     font-family: var(--font-body);
+    /* Sets the default text color. */
     color: var(--text-color);
+    /* Sets the default background color. */
     background-color: var(--background-color);
+    /* Sets the space between lines of text to 1.6 times the font size for better readability. */
     line-height: 1.6;
+    /* Sets the base font size for the mobile view. */
     font-size: 1.5rem
 }
 
+/* Styles for the <header> element at the top of the page. */
 header {
     background-color: var(--primary-color);
     color: var(--light-text-color);
+    /* Adds 1.5rem of padding on the top/bottom and 1rem on the left/right. */
     padding: 1.5rem 1rem;
     text-align: center;
     font-family: var(--font-heading);
+    /* Adds a 4px solid dark grey border at the bottom of the header. */
     border-bottom: 4px solid var(--secondary-color);
 }
 
+/* Styles for the main heading (h1) inside the header. */
 header h1 {
     font-size: 2.5rem;
+    /* Adds space between the letters. */
     letter-spacing: 3px;
     font-weight: 700;
 }
 
+/* Mobile-first styles for the <main> content area. It's a simple single-column layout. */
 main {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* Defines one column that takes up all available space. */
 }
 
+/* Styles for the container of the main "hero" image. */
 .hero {
+    /* Tells this grid item to span from the first column line (-1 means the last line). */
     grid-column: 1 / -1;
+    /* Places this item in the first row of the grid. */
     grid-row: 1 / 2;
 }
 
+/* Styles for the <picture> element and the <img> inside it. */
 .hero picture,
 .hero img {
+    /* Makes the image scale to the full width of its container. */
     width: 100%;
+    /* Removes a small default space that browsers sometimes add below images. */
     display: block;
+    /* Maintains the image's aspect ratio as it scales. */
     height: auto;
 }
 
+/* The container for the data and weather cards in the mobile view. */
 .info-container {
     grid-column: 1 / -1;
     grid-row: 2 / 3;
     padding: 1rem;
+    /* Uses Flexbox to stack the cards vertically. */
     display: flex;
     flex-direction: column;
 }
 
+/* General styles that apply to both cards in the mobile view. */
 .card {
     background-color: var(--card-background-mobile);
     padding: 1.5rem;
+    /* Adds a subtle shadow to the card. */
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     border-radius: 0 8px 8px 0;
+    /* This centers the content block (like the <dl> list) inside the card. */
     text-align: center;
 }
 
+/* Styles for the headings (Data, Weather) inside the cards. */
 .card h2 {
     font-family: var(--font-heading);
     font-size: 1.8rem;
+    /* There is a typo here ('--text-colorr' instead of '--text-color'), which may cause the color to default to black. */
     color: var(--text-colorr);
     padding: 0.75rem 1.5rem;
+    /* Negative margins pull the element outside its container, used here to remove default spacing. */
     margin: -1.5rem -1.5rem 1.5rem -1.5rem;
     text-align: center;
     font-weight: bold;
 }
 
+/* Styles for the description lists (<dl>) inside the cards. */
 .card dl {
+    /* This makes the grid only as wide as its content, which allows text-align:center on the parent to work. */
     display: inline-grid;
+    /* Creates two columns: one that fits its content (max-content) and one that takes the remaining space (1fr). */
     grid-template-columns: max-content 1fr;
+    /* Adds space between the rows (0.5rem) and columns (1rem). */
     gap: 0.5rem 1rem;
+    /* This ensures the text *within* the columns is left-aligned, preventing it from being centered by the parent. */
     text-align: left;
 }
 
+/* Styles for the description terms (<dt>), like "Area:". */
 .card dt {
     font-weight: 700;
 }
 
+/* A specific rule for the weather card, though its style is already set by the general .card rule. */
 #weather-card {
     text-align: center;
 }
 
+/* This rule is intended to hide the SVG icon, but it's being used on desktop. In mobile, the icon is visible due to a conflicting rule. */
 .weather-icon {
     display: none;
 }
 
+/* This rule creates the emoticon on desktop but is immediately overridden by the rule below it. */
 .weather-heading::after {
     content: '⛅';
     display: inline-block;
@@ -111,10 +163,12 @@ main {
     vertical-align: middle;
 }
 
+/* This rule overrides the one above it, effectively hiding the emoticon in all views. */
 .weather-heading::after {
     display: none;
 }
 
+/* Styles for the page footer. */
 footer {
     background-color: var(--primary-color);
     color: var(--light-text-color);
@@ -123,64 +177,85 @@ footer {
     font-size: 0.9rem;
 }
 
+/* Styles for the paragraph elements inside the footer. */
 footer p {
     margin: 0.25rem 0;
 }
 
+/* This is a media query. The styles inside only apply when the screen width is 768px or wider. */
 @media (min-width: 768px) {
+    /* Styles the body specifically for the desktop view. */
     body {
+        /* This makes the body fill the entire height of the browser window. */
         height: 100vh;
+        /* Establishes a flexbox layout to control the vertical stacking of header, main, and footer. */
         display: flex;
         flex-direction: column;
         font-size: 1.3rem;
     }
 
+    /* Styles the main content area for desktop. */
     main {
+        /* This tells the main area to grow and fill all available space between the header and footer. */
         flex: 1;
+        /* This is crucial: it hides any part of the hero image that is too big to fit, preventing a scrollbar. */
         overflow: hidden;
+        /* Creates a positioning context for its children (like the hero and info-container). */
         position: relative;
+        /* Overrides the 'grid' from the mobile view. */
         display: block;
         background-color: var(--secondary-color);
     }
 
+    /* Styles the hero image and its containers for the desktop background effect. */
     .hero,
     .hero picture,
     .hero img {
+        /* Takes the image out of the normal layout flow to position it as a background. */
         position: absolute;
         top: 0.3rem;
         left: 0;
         width: 100%;
         height: 100%;
+        /* Ensures the image covers the entire area without being stretched or squashed. */
         object-fit: cover;
     }
 
+    /* Styles the card container for desktop. */
     .info-container {
         position: relative;
+        /* A higher z-index ensures the cards sit on top of the hero image. */
         z-index: 1;
         height: 100%;
+        /* Creates the 4-column grid for the cards. */
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         gap: 2rem;
         padding: 2rem;
+        /* Vertically centers the cards in the available space. */
         align-items: center;
     }
 
+    /* Overrides mobile card styles for desktop. */
     .card {
         background-color: var(--card-background-desktop);
+        /* Creates a "frosted glass" effect on supported browsers. */
         backdrop-filter: blur(5px);
         border-radius: 8px;
         border-left: none;
         position: relative;
         padding: 1.5rem;
+        /* Adds space at the top of the card so content doesn't go under the absolutely positioned header. */
         padding-top: 7rem;
     }
 
+    /* Styles for the card headers on desktop, creating the offset effect. */
     .card h2 {
         position: absolute;
         top: 1.5rem;
-        left: -1rem;
-        right: 5rem;
-        display: inline-flex;
+        left: -1rem; /* Pulls the header outside the card's left edge. */
+        right: 5rem; /* Sets a distance from the right edge, which can affect width. */
+        display: inline-flex; /* Shrinks the background to fit the text/icon and allows flex alignment. */
         align-items: center;
         gap: 0.75rem;
         background-color: #2b2b2b;
@@ -189,18 +264,21 @@ footer p {
         margin: 0;
     }
 
+    /* Specific grid placement for the data card. grid-column: 1; is unusual, 1 / 3 might be intended. */
     #data-card {
         grid-column: 1;
         align-self: start;
         margin-top: 3rem;
     }
 
+    /* Specific grid placement for the weather card. grid-column: 5; will place it outside a 4-column grid. 3 / 5 might be intended. */
     #weather-card {
         grid-column: 5;
         grid-row: 1;
         align-self: center;
     }
 
+    /* This rule is redundant as the flex properties are already on the .card h2 element containing the heading. */
     .weather-heading {
         display: flex;
         justify-content: center;
@@ -208,21 +286,25 @@ footer p {
         gap: 0.75rem;
     }
 
+    /* This rule is attempting to style the SVG icon, but it's likely hidden by another rule. */
     .weather-icon {
         width: 35px;
         height: 35px;
     }
 
+    /* Overrides the mobile list style for desktop. */
     .card dl {
         display: grid;
         grid-template-columns: max-content 1fr;
         gap: 0.5rem 1rem;
     }
 
+    /* Aligns the labels (dt) to the right on desktop. */
     .card dt {
         text-align: right;
     }
 
+    /* Aligns the values (dd) to the left on desktop. */
     .card dd {
         text-align: left;
     }
