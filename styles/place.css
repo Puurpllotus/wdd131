@@ -71,7 +71,8 @@ header h1 {
 /* Mobile-first styles for the <main> content area. It's a simple single-column layout. */
 main {
     display: grid;
-    grid-template-columns: 1fr; /* Defines one column that takes up all available space. */
+    grid-template-columns: 1fr;
+    /* Defines one column that takes up all available space. */
 }
 
 /* Styles for the container of the main "hero" image. */
@@ -91,6 +92,18 @@ main {
     display: block;
     /* Maintains the image's aspect ratio as it scales. */
     height: auto;
+}
+
+.cls-1 {
+    fill: #231815;
+}
+
+.cls-2 {
+    fill: #d8bf9e;
+}
+
+.cls-3 {
+    fill: #f8b62d;
 }
 
 /* The container for the data and weather cards in the mobile view. */
@@ -151,10 +164,14 @@ main {
 
 /* This rule is intended to hide the SVG icon, but it's being used on desktop. In mobile, the icon is visible due to a conflicting rule. */
 .weather-icon {
-    display: block;      /* Makes the icon a block element */
-    margin: 1rem auto;   /* Centers the icon horizontally and adds space */
-    width: 100px;        /* Sets a reasonable size for the icon */
-    height: auto;        /* Maintains the correct aspect ratio */
+    display: block;
+    /* Makes the icon a block element */
+    margin: 1rem auto;
+    /* Centers the icon horizontally and adds space */
+    width: 100px;
+    /* Sets a reasonable size for the icon */
+    height: auto;
+    /* Maintains the correct aspect ratio */
 }
 
 /* This rule creates the emoticon on desktop but is immediately overridden by the rule below it. */
@@ -175,6 +192,7 @@ footer p {
 
 /* This is a media query. The styles inside only apply when the screen width is 768px or wider. */
 @media (min-width: 768px) {
+
     /* Styles the body specifically for the desktop view. */
     body {
         /* This makes the body fill the entire height of the browser window. */
@@ -244,10 +262,13 @@ footer p {
     .card h2 {
         position: absolute;
         top: 0.5rem;
-        left: -1rem; /* Pulls the header outside the card's left edge. */
-        right: 5rem; /* Sets a distance from the right edge, which can affect width. */
-        display: inline-flex; /* Shrinks the background to fit the text/icon and allows flex alignment. */
-        align-items:left;
+        left: -1rem;
+        /* Pulls the header outside the card's left edge. */
+        right: 5rem;
+        /* Sets a distance from the right edge, which can affect width. */
+        display: inline-flex;
+        /* Shrinks the background to fit the text/icon and allows flex alignment. */
+        align-items: center;
         gap: 0.75rem;
         background-color: #747070;
         color: var(--light-text-color);
@@ -269,13 +290,6 @@ footer p {
         align-self: center;
     }
 
-    /* This rule is redundant as the flex properties are already on the .card h2 element containing the heading. */
-    .weather-heading {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 0.75rem;
-    }
 
     /* This rule is attempting to style the SVG icon, but it's likely hidden by another rule. */
     .weather-icon {
