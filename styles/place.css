@@ -290,13 +290,15 @@ footer p {
         align-self: center;
     }
 
-
-    /* This rule is attempting to style the SVG icon, but it's likely hidden by another rule. */
-    .weather-icon {
-        width: 50px;
-        height: auto;
-        display: inline-block;
-    }
+.weather-heading::after {
+    content: '⛅'; /* This adds the partly cloudy emoji */
+    margin-left: 0.75rem; /* Adds space between the word "Weather" and the emoji */
+    vertical-align: middle; /* Helps align the emoji with the text */
+}
+   
+ .weather-icon {
+    display: none; /* This hides the SVG on screens 768px and wider */
+}
 
     /* Overrides the mobile list style for desktop. */
     .card dl {
