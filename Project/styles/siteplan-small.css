@@ -10,6 +10,14 @@
      --font-body: 'Lato', sans-serif;
  }
 
+ header {
+     background-color: var(--color-secondary-purple);
+     padding: 20px;
+     text-align: center;
+     border-bottom: 5px solid var(--color-primary-accent);
+ }
+
+
  body {
      font-family: var(--font-body);
      color: var(--color-text-light);
@@ -17,31 +25,23 @@
      background-color: rgb(59, 58, 58);
      /* Main content background */
      line-height: 1.6;
-     margin: 0;
+     margin: 0rem;
      padding: 20px;
  }
-
- header {
-     background-color: var(--color-secondary-purple);
-     color: var(--color-text-light);
-     padding: 20px;
-     text-align: center;
-     border-bottom: 5px solid var(--color-primary-accent);
- }
-
+ 
  h1,
  h2 {
      font-family: var(--font-heading);
-     color: var(--color-primary-accent);
+    color: var(--color-primary-accent);
      /* Headings use Primary Accent */
-     border-bottom: 2px solid var(--color-text-light);
      padding-bottom: 5px;
      margin-top: 30px;
  }
 
- header h1 {
+ header p {
      color: var(--color-text-light);
      border: none;
+     
  }
 
  /* Styling for the Wireframe section to distinguish it */
@@ -66,4 +66,5 @@
          text-align: center;
          padding: 1rem;
          margin-top: 1rem;
+         border-top: 5px solid var(--color-primary-accent);
      }
