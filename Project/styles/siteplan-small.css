@@ -1,6 +1,6 @@
  /* --- Color Schema & Typography Implementation --- */
  :root {
-     --color-primary-accent: #FFC300;
+     --color-primary-accent: rgb(255, 196, 0);
      /* Luxury Gold */
      --color-secondary-purple: #6d1f79;
      /* RDeep Purple */
