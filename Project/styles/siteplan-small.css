@@ -1,11 +1,13 @@
  /* --- Color Schema & Typography Implementation --- */
  :root {
-     --color-primary-accent: rgb(255, 196, 0);
+     --color-primary-accent: #ffc400;
      /* Luxury Gold */
      --color-secondary-purple: #6d1f79;
-     /* RDeep Purple */
+     /* Deep Purple */
      --color-text-light: #FFFFFF;
      /* Clean White */
+    --color-background-grey: #3b3a3a;
+        /* Deep Grey */
      --font-heading: 'Playfair Display', serif;
      --font-body: 'Lato', sans-serif;
  }
@@ -22,7 +24,7 @@
      font-family: var(--font-body);
      color: var(--color-text-light);
      /* Default text color */
-     background-color: rgb(59, 58, 58);
+     background-color: var(--color-background-grey);
      /* Main content background */
      line-height: 1.6;
      margin: 0rem;
