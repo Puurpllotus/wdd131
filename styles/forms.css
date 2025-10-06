@@ -1,0 +1,217 @@
+/* --- Root Variables for Color & Typography --- */
+:root {
+    --color-primary: #6d1f79; /* Deep Purple (Header/Footer/Accent) */
+    --color-secondary: #FFC300; /* Luxury Gold (Accent/Highlight) */
+    --color-background: #f4f4f4; /* Light Grey (Main Background) */
+    --color-form-bg: #e0d9e2; /* Light Lavender (Form Background) */
+    --color-text: #2c3e50; /* Dark Blue-Grey */
+    
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Roboto', sans-serif;
+}
+
+/* --- General and Typography --- */
+body {
+    font-family: var(--font-body);
+    color: var(--color-text);
+    background-color: var(--color-background);
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: var(--color-primary);
+    color: var(--color-background);
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    font-family: var(--font-heading);
+    margin: 0;
+}
+
+main {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 0 10px;
+}
+
+/* --- Form Styling --- */
+form {
+    background-color: var(--color-form-bg);
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+fieldset {
+    border: none;
+    padding: 10px 0;
+    margin-bottom: 20px;
+}
+
+legend {
+    font-size: 1.1em;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: 10px;
+    padding: 0;
+}
+
+legend span {
+    color: red;
+}
+
+label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: var(--color-text);
+}
+
+label span {
+    color: red;
+}
+
+input:not([type="radio"]):not([type="checkbox"]), 
+select, 
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Includes padding in the element's total width/height */
+    font-family: var(--font-body);
+}
+
+textarea {
+    resize: vertical;
+}
+
+/* --- Radio Button Styling (Overall Rating) --- */
+
+.rating-fieldset {
+    /* Use padding to separate from other fields */
+    padding-bottom: 10px; 
+}
+
+.rating-stars {
+    display: flex;
+    flex-direction: row-reverse; /* Reverses order so the CSS logic works */
+    justify-content: center; /* CENTERING the star group */
+    width: fit-content;
+    margin: 10px auto 20px;
+}
+.rating-stars input[type="radio"] {
+    display: none;
+}
+
+/* --- Corrected CSS for Bordered/Filled Stars --- */
+
+.rating-stars label {
+    font-size: 1.8em;
+    cursor: pointer;
+    /* Set the default color for the "border" to be the Luxury Gold */
+    color: var(--color-secondary); 
+    margin: 0 2px;
+    transition: all 0.2s;
+    display: block;
+    line-height: 1; 
+}
+
+/* 1. Unselected State (The "Gold Border") */
+.rating-stars label::before {
+    /* Use the EMPTY star character for the default look */
+    content: '☆'; 
+}
+
+/* 2. Selected/Hovered State (The "Solid Gold Fill") */
+/* When checked or hovered, we change the content to the SOLID star character */
+.rating-stars input[type="radio"]:checked ~ label::before, 
+.rating-stars input[type="radio"]:checked + label::before,
+.rating-stars label:hover::before,
+.rating-stars label:hover ~ label::before {
+    /* Change the character to the SOLID star for the filled look */
+    content: '★'; 
+}
+
+
+.rating-stars input[type="radio"]:checked ~ label,
+.rating-stars input[type="radio"]:checked + label,
+.rating-stars label:hover,
+.rating-stars label:hover ~ label {
+    /* Ensure the color stays Luxury Gold */
+    color: var(--color-secondary); 
+}
+/* --- Checkbox Group --- */
+.checkbox-group div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: auto;
+    margin-right: 10px;
+}
+
+.checkbox-group label {
+    margin: 0;
+    font-weight: 400;
+}
+
+/* --- Submission Button --- */
+.submit-button {
+    background-color: var(--color-primary);
+    color: white;
+    font-weight: 700;
+    font-size: 1.1em;
+    cursor: pointer;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    margin-top: 15px;
+    transition: background-color 0.2s;
+}
+
+.submit-button:hover {
+    background-color: #4a1453; /* Darker purple on hover */
+}
+
+/* --- Footer --- */
+footer {
+    background-color: var(--color-primary);
+    color: var(--color-background);
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+footer p {
+    margin: 5px 0;
+    font-size: 0.85em;
+}
+/* --- Review Confirmation Page Styling --- */
+
+main.review-confirmation {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: var(--color-form-bg); /* Uses the existing form background color */
+    border-radius: 8px;
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+main.review-confirmation h2 {
+    color: var(--color-primary);
+    font-family: var(--font-heading);
+    font-size: 2em;
+}
+
+#review-counter {
+    font-size: 1.5em;
+    color: var(--color-secondary); /* Luxury Gold highlight for the count */
+    font-weight: 700;
+}
