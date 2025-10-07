@@ -59,9 +59,7 @@ legend {
     padding: 0;
 }
 
-legend span {
-    color: red;
-}
+
 
 label {
     display: block;
@@ -70,7 +68,10 @@ label {
     color: var(--color-text);
 }
 
-label span {
+fieldset:first-child label::after,
+fieldset:nth-child(3) label::after, 
+.rating-fieldset legend::after {
+    content: " *";
     color: red;
 }
 
