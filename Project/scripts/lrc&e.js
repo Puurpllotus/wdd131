@@ -1,4 +1,4 @@
-// Fulfills Rubric: Use objects, arrays, and array methods
+// Array of available cruise and event products
 const products = [
     { id: "rc-101", name: "Sunrise Breakfast Cruise", price: 35000, description: "Start your day with an exquisite breakfast buffet and views of the waking city." },
     { id: "rc-202", name: "Midday Lunch Buffet", price: 45000, description: "A relaxed midday break featuring a selection of local and continental cuisine." },
@@ -6,32 +6,31 @@ const products = [
     { id: "ev-404", name: "Private Event Charter", price: 900000, description: "Hire the entire vessel for weddings, corporate retreats, and special celebrations." }
 ];
 
-// Fulfills Rubric: More than one function (4 functions defined)
-
-// --- Function 1: Navigation Toggle (Handles the icon and menu state) ---
+/*-------------------------------------------------------
+  Function 1: Toggle the mobile navigation menu
+--------------------------------------------------------*/
 function toggleMobileMenu() {
     const navUl = document.querySelector('nav ul');
-    const hamburger = document.querySelector('.hamburger'); 
-    
-    // Fulfills Rubric: DOM modification
-    navUl.classList.toggle('open');
-    
-    // Fulfills Rubric: Conditional branching
-    if (navUl.classList.contains('open')) { 
-        hamburger.textContent = '✖'; 
-        hamburger.setAttribute('aria-label', 'Close Navigation');
-    } else {
-        hamburger.textContent = '☰';
-        hamburger.setAttribute('aria-label', 'Toggle Navigation');
-    }
+    const hamburger = document.querySelector('.hamburger');
+
+    const isOpen = navUl.classList.toggle('open');
+
+    // Change icon and label
+    hamburger.textContent = isOpen ? '✖' : '☰';
+    hamburger.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
+
+    // ✅ Add this line for accessibility:
+    hamburger.setAttribute('aria-expanded', isOpen);
 }
 
-// --- Function 2: Populates the Service dropdown ---
+/*-------------------------------------------------------
+  Function 2: Populate service dropdown with product data
+--------------------------------------------------------*/
 function populateServiceOptions() {
     const selectElement = document.getElementById('servicename');
     if (!selectElement) return;
 
-    // Fulfills Rubric: Array method (forEach) and Template literal
+    // Loop through each product and create an <option> element
     products.forEach(product => {
         const optionContent = `${product.name} (₦${product.price.toLocaleString()})`;
         const option = document.createElement('option');
@@ -41,37 +40,51 @@ function populateServiceOptions() {
     });
 }
 
-// --- Function 3: Updates the Booking Counter (localStorage) ---
+/*-------------------------------------------------------
+  Function 3: Update the booking counter using localStorage
+--------------------------------------------------------*/
 function updateBookingCounter() {
     const counterElement = document.getElementById('booking-counter');
     if (!counterElement) return;
 
-    let bookingCount = parseInt(localStorage.getItem('LRCBookingCount')) || 0; // Fulfills Rubric: localStorage
+    // Retrieve existing booking count or start from 0
+    let bookingCount = parseInt(localStorage.getItem('LRCBookingCount')) || 0;
     
+    // Increment and store updated count
     bookingCount++;
     localStorage.setItem('LRCBookingCount', bookingCount);
 
-    counterElement.textContent = `${bookingCount}`; // Fulfills Rubric: Template literal
+    // Display the current count in the footer or UI
+    counterElement.textContent = `${bookingCount}`;
 }
 
-// --- Function 4: Updates Footer (DOM) ---
+/*-------------------------------------------------------
+  Function 4: Display current year and last modified date
+--------------------------------------------------------*/
 function updateFooter() {
     const yearSpan = document.getElementById('currentyear');
     const modifiedSpan = document.getElementById('lastModified');
     
-    if (yearSpan) { yearSpan.textContent = new Date().getFullYear(); }
-    if (modifiedSpan) { modifiedSpan.textContent = document.lastModified; }
+    if (yearSpan) { 
+        yearSpan.textContent = new Date().getFullYear(); 
+    }
+    if (modifiedSpan) { 
+        modifiedSpan.textContent = document.lastModified; 
+    }
 }
 
-// --- Initialization (Listener Attachment) ---
+/*-------------------------------------------------------
+  Initialize functions and attach event listeners
+--------------------------------------------------------*/
 document.addEventListener('DOMContentLoaded', () => {
-    
-    // Fulfills Rubric: Listening for and reacting to events
     const hamburger = document.querySelector('.hamburger'); 
+    
+    // Handle menu toggle on mobile
     if (hamburger) {
         hamburger.addEventListener('click', toggleMobileMenu);
     }
     
+    // Run all initialization functions
     populateServiceOptions();
     updateBookingCounter(); 
     updateFooter();
