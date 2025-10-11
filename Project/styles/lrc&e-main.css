@@ -1,0 +1,510 @@
+/* Fulfills Rubric: Contemporary CSS (using variables) */
+/* Fulfills Rubric: Responsive design (mobile-first foundation) */
+
+:root {
+    /* USER DEFINED COLORS AND NAMING CONVENTION */
+    --color-primary: #ffc400;
+    /* Luxury Gold */
+    --color-secondary: #6d1f79;
+    /* Deep Purple */
+    --color-text-light: #FFFFFF;
+    /* Clean White */
+    --color-background-grey: #3b3a3a;
+    /* Deep Grey (Main Body BG) */
+
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Lato', sans-serif;
+
+    /* New variable for contrast link background */
+    --color-link-bg-dark: #535252;
+}
+
+/* --- Base Typography & Structure --- */
+body {
+    font-family: var(--font-body);
+    color: var(--color-text-light);
+    background-color: var(--color-background-grey);
+    margin: 0;
+    padding: 0;
+    /* FIX 1: Reduce base font size for smaller starting point */
+    font-size: 93.75%;
+    /* Sets base size to 15px (15/16) */
+}
+
+p {
+    /* FIX 2: Explicitly reduce paragraph size */
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+h1,
+h2,
+h3 {
+    font-family: var(--font-heading);
+    color: var(--color-primary);
+    margin-top: 0;
+    text-align: center;
+}
+
+/* FIX: Fluid Typography for Headings */
+h1 {
+    font-size: clamp(1.4rem, 4.5vw, 3.5rem);
+    /* Tweak: Min size reduced to 1.4rem */
+}
+
+h2 {
+    font-size: clamp(1.6rem, 3.5vw, 3rem);
+    /* Tweak: Min size reduced slightly */
+}
+
+h3 {
+    font-size: clamp(1.4rem, 3vw, 2.2rem);
+}
+
+
+/* --- Accessibility/Usability: Skip Links & Focus --- */
+:focus {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+/* --- Header & Navigation --- */
+header {
+    background-color: var(--color-secondary);
+    /* Deep Purple Header */
+    color: var(--color-text-light);
+    /* Reduced vertical padding */
+    padding: 15px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: static;
+    /* Should scroll away */
+    top: 0;
+    z-index: 1000;
+}
+
+/* FIX 1: Constrain Logo Size */
+.logo-name {
+    /* Ensures the logo container stays within a reasonable size */
+    max-width: 150px;
+    height: 40px;
+    display: flex;
+    /* Helps align the image */
+    align-items: center;
+}
+
+.logo-name img {
+    /* CRITICAL FIX: Constrain the image to fit the header */
+    height: 300px;
+    width: auto;
+    margin-top: -1.3rem;
+    /* Remove width: 200px; which was causing overflow */
+}
+
+/* --- Hamburger Button (Open/Close) --- */
+.hamburger {
+    background: none;
+    border: none;
+    color: var(--color-text-light);
+    /* White/Light color for the icon */
+    font-size: 1.8em;
+    cursor: pointer;
+    z-index: 1001;
+    padding: 5px;
+}
+
+/* --- Mobile Menu Setup (The UL list) --- */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: none;
+    flex-direction: column;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    width: 250px;
+    background-color: var(--color-secondary);
+    z-index: 999;
+
+    /* Menu starts right below the fixed header */
+    margin-top: 60px;
+
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+nav ul.open {
+    display: flex;
+}
+
+/* Style the links */
+nav a {
+    display: block;
+    padding: 15px 20px;
+    text-decoration: none;
+    color: var(--color-primary);
+    /* Gold text on Purple background */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: background-color 0.2s;
+    background-color: var(--color-secondary);
+    /* Deep Purple background */
+}
+
+nav a:hover,
+nav a.active {
+    background-color: var(--color-primary);
+    /* Gold background */
+    color: var(--color-secondary);
+    /* Deep Purple text */
+}
+
+/* --- Home Page Wireframe Sections (Mobile View) --- */
+.hero {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.hero-text {
+    position: absolute;
+    top: 55%;
+    /* was 50%; shifts text downward */
+    left: 50%;
+    transform: translate(-50%, -55%);
+    padding: 28px 20px;
+    /* reduce padding for better fit */
+    max-width: 90vw;
+    /* (mobile) safely inside viewport */
+    width: 100%;
+    /* Ensures the text block does not overflow the container */
+    background-color: rgba(0, 0, 0, 0.44);
+    border-radius: 10px;
+    color: var(--color-text-light);
+    z-index: 20;
+}
+.hero-text p {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-container {
+    position: relative;
+    margin-top: -0.3rem;
+}
+
+.hero-image-box {
+    /* Set a specific height relative to the viewport (e.g., 60% of viewport height) */
+    height: 60vh;
+    /* CRITICAL FIX: Use 100vw to force the box to span the entire viewport width, 
+       ignoring any margin/padding on the <body> or <main> container. */
+    width: 97vw;
+    /* Centering Trick */
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    overflow: hidden;
+}
+
+.hero-image-box img {
+    width: 100%;
+    height: 100%;
+    display: block;
+
+    object-fit: cover;
+    object-position: center;
+}
+
+
+.services-preview {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.services-preview h2 {
+    margin-bottom: 2rem;
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+}
+
+.reservation-callout,
+.about-section {
+    padding: 20px 15px;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    justify-items: center;
+}
+
+.service-card {
+    background-color: #4a4a4a;
+    border-radius: 12px;
+    overflow: hidden;
+    width: 100%;
+    max-width: 350px;
+    /* Keeps cards moderate on large screens */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.services-grid .service-card a {
+    text-decoration: none;
+    color: var(--color-primary);
+    font-weight: 700;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+.service-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Text in cards */
+.service-card h3 {
+    font-size: clamp(1.3rem, 2vw, 1.7rem);
+    color: var(--color-primary);
+    margin-top: 1rem;
+}
+
+.service-card p {
+    font-size: 1rem;
+    line-height: 1.5;
+    padding: 0 1rem 1.5rem 1rem;
+    color: #f5f5f5;
+}
+
+.about-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.about-section img {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
+}
+
+.about-section p {
+    max-width: 600px;
+    margin: 25px;
+    line-height: 1.9;
+    font-size: 1.1em;
+}
+
+/* --- Call to Action Buttons --- */
+.cta-button {
+    display: block;
+    width: 90%;
+    max-width: 350px;
+    margin: 25px auto;
+    padding: 15px 30px;
+    padding-right: 1px;
+    text-align: center;
+    text-decoration: none;
+    background-color: var(--color-secondary);
+    color: var(--color-primary);
+    font-weight: 700;
+    border-radius: 50px;
+    /* Rounded button style */
+    transition: background-color 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border: 2px solid var(--color-secondary);
+}
+
+.cta-button:hover {
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+    border: 2px solid var(--color-secondary);
+}
+
+/*---Reservation Forms---*/
+
+.reservation-form fieldset {
+    margin: 2rem 0;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: .5rem 2%;
+}
+
+.reservation-form legend {
+    color: var(--color-primary);
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.reservation-form label {
+    display: block;
+    margin: 1rem 0;
+    font-size: 1rem;
+    padding-top: 1rem;
+}
+
+.reservation-form div {
+    padding-top: 1rem;
+    color: var(--color-secondary);
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.reservation-form input[type="text"],
+.reservation-form input[type="tel"],
+.reservation-form input[type="email"],
+.reservation-form input[type="url"],
+.reservation-form input[type="date"],
+.reservation-form select,
+.reservation-form input[type="number"] {
+    background-color: var(--color-text-light);
+    display: block;
+    border: solid 1px #ccc;
+    border-radius: 4px;
+    padding: .75rem;
+    color:#000;
+    width: 100%;
+    max-width: 400px;
+    appearance: none;
+}
+
+.reservation-form input[type="radio"],
+.reservation-form input[type="checkbox"] {
+    margin-right: 6px;
+}
+
+.reservation-form input[type="submit"] {
+    background-image: linear-gradient(purple, rgb(75, 73, 73));
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 1.5rem ;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    width: 95%;
+    max-width: 400px;
+    margin: -1rem 2% 2rem 2%;
+    box-shadow: 1px 1px 8px blueviolet;
+}
+
+.reservation-form input:required:valid {
+    border-left: solid 6px rgb(179, 6, 191);
+}
+
+.reservation-form textarea {
+    background-color: var(--color-text-light);
+    display: block;
+    border: solid 1px #ccc;
+    border-radius: 4px;
+    padding: .75rem;
+    color:#000;
+    width: 100%;
+    max-width: 400px;
+    appearance: none;
+}
+
+/*--Services Page Specific Styles--*/
+.services-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    justify-items: center;
+}
+
+.service-card {
+    background-color: #4a4a4a;
+    border-radius: 12px;
+    overflow: hidden;
+    width: 100%;
+    max-width: 350px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+}
+.service-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+}
+.service-card h3 {
+    font-size: clamp(1.3rem, 2vw, 1.7rem);
+    color: var(--color-primary);
+    margin-top: 1rem;
+}
+.service-card p {
+    font-size: 1rem;
+    line-height: 1.5;
+    padding: 0 1rem 1.5rem 1rem;
+}
+
+.service-details img{
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    display: block;
+    margin: 0 auto 1rem auto;
+}
+.service-details p{
+    max-width: 600px;
+    margin: 0 auto 1rem auto;
+    line-height: 1.6;
+    font-size: 1rem;
+    padding: 1rem;
+}
+
+main h2{
+    font-size: clamp(1.3rem, 2vw, 1.7rem);
+    margin-top: 3rem;
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    text-align: center;
+}
+main h3{
+    font-size: clamp(1.4rem, 3vw, 2.2rem);
+    text-align: center;
+    margin-top: 3rem;
+    margin-bottom: -0.5rem;
+}
+h4{
+    font-size: clamp(1.2rem, 2vw, 1.6rem);
+    margin-top: 1.5rem;
+    text-align: center;
+}
+
+/* --- Footer --- */
+footer {
+    background-color: var(--color-secondary);
+    color: var(--color-text-light);
+    border-top: 15px solid var(--color-primary);
+    padding: 20px;
+    text-align: center;
+    border-top: 5px solid var(--color-secondary);
+    font-size: 0.85em;
+    display: grid;
+    gap: 10px;
+}
+
+footer a {
+    color: var(--color-primary);
+    text-decoration: none;
+}

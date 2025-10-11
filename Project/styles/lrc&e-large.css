@@ -1,0 +1,304 @@
+ @media (min-width: 768px) {
+
+     html,
+     body {
+         width: 100%;
+         overflow-x: hidden;
+     }
+
+     header {
+         flex-direction: row;
+         align-items: center;
+         justify-content: space-between;
+         padding: 0 3vw;
+         height: 80px;
+     }
+
+     nav {
+         flex: 1;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+     }
+
+     nav ul {
+         display: flex;
+         flex-direction: row;
+         align-items: center;
+         justify-content: center;
+         position: static;
+         width: auto;
+         background: none;
+         padding: 0;
+         margin: 0;
+     }
+
+     nav ul li {
+         flex-grow: 0;
+         text-align: center;
+         font-weight: bold;
+         border-radius: 5px;
+     }
+
+     nav ul li a {
+         display: inline-block;
+         padding: clamp(0.3rem, 0.8vw, 0.8rem) clamp(0.6rem, 1vw, 1.2rem);
+         font-size: clamp(0.9rem, 1vw, 1.2rem);
+         /* scales smoothly */
+         transition: color 0.3s ease, background-color 0.3s ease;
+     }
+
+     .hamburger {
+         display: none;
+     }
+
+     /* --- Other Desktop Overrides --- */
+     main {
+         padding: 30px 5vw;
+         max-width: 1400px;
+         margin: auto;
+     }
+
+     .services-preview {
+         text-align: center;
+         padding: clamp(2rem, 4vw, 4rem) clamp(1rem, 5vw, 3rem);
+         margin: 0 auto;
+         width: 100%;
+         max-width: 1400px;
+         /* keeps it aligned with hero and footer */
+         box-sizing: border-box;
+         overflow-x: hidden;
+         /* just in case any image sticks out */
+     }
+
+     .services-preview h2 {
+         font-size: clamp(1.4rem, 2.2vw, 2rem);
+     }
+
+     .services-preview h3 {
+         font-size: clamp(1.2rem, 1.8vw, 1.7rem);
+     }
+
+     /* Service grid layout */
+     .services-grid {
+         display: grid;
+         grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+         gap: clamp(1rem, 2vw, 2.5rem);
+         justify-items: center;
+         align-items: start;
+         width: 100%;
+         box-sizing: border-box;
+         margin: 0 auto;
+         overflow: hidden;
+     }
+
+     /* Individual cards */
+     .service-card {
+         background-color: #4a4a4a;
+         border-radius: 12px;
+         overflow: hidden;
+         width: 100%;
+         max-width: 380px;
+         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+         transition: transform 0.3s ease, box-shadow 0.3s ease;
+     }
+
+     .service-card img {
+         width: 100%;
+         height: clamp(180px, 25vw, 250px);
+         object-fit: cover;
+         display: block;
+     }
+
+     /* Fulfills Rubric: Alignment, Repetition (using Grid for layout consistency) */
+
+     /* --- Home Page Wireframe Implementation (Desktop) --- */
+
+     /* Header/Hero Section based on wireframe */
+     .hero {
+         text-align: center;
+         margin-top: -1rem;
+     }
+
+     .hero-text {
+         top: 58%;
+         /* was 50%; shifts text further downward */
+         left: 50%;
+         transform: translate(-50%, -58%);
+         padding: 35px 32px;
+         /* slightly more generous on desktop but less aggressive than before */
+         max-width: 44vw;
+         /* prevents background from becoming too large at 100% zoom */
+         width: 100%;
+         /* adapts to parent image box width */
+     }
+
+     .hero-text h1 {
+         font-size: 3em;
+         margin: 0 0 10px 0;
+         font-size: clamp(2rem, 2.8vw, 2.7rem);
+         /* Lower minimum and max */
+     }
+
+     .hero-container {
+         overflow-x: hidden;
+         width: 99vw;
+         position: relative;
+         left: 50%;
+         transform: translateX(-50%);
+         margin-top: -2rem;
+     }
+
+     .hero-image-box {
+         /* Set a specific height relative to the viewport (e.g., 60% of viewport height) */
+         height: 100vh;
+
+         /* CRITICAL FIX: Use 100vw to force the box to span the entire viewport width, 
+       ignoring any margin/padding on the <body> or <main> container. */
+         width: 100vw;
+
+         /* To account for the 100vw pulling the box outside the main flow, we shift it back left by the margin */
+         /* This calculation depends on the padding of the parent <main> or the <body> margin.
+       Assuming a default 0 margin on body and custom padding on main: */
+         position: relative;
+         /* Allows position adjustment */
+         left: 50%;
+         right: 50%;
+         /* Start in the middle */
+         transform: translateX(-50%);
+         /* Pull back half its width */
+
+         margin: 0;
+         overflow: hidden;
+         /* CRITICAL: Hides the parts of the image that are cropped */
+
+         /* Centering is achieved by making the image cover the container (see below) */
+     }
+
+     .hero-image-box img {
+         /* Image stays 100% width and height of its 100vw container */
+         width: 100%;
+         height: 100vh;
+         display: block;
+
+         object-fit: cover;
+         object-position: center;
+     }
+
+     /* ... (Existing code below) ... */
+
+     /* About Us Section (Wireframe Two-Column) */
+     .about-section {
+         /* CRITICAL: Switches from mobile stack (default) to side-by-side grid */
+         display: grid;
+         grid-template-columns: 1fr 1fr;
+         /* Two equal columns */
+         gap: 40px;
+         /* Spacing between text and image */
+         align-items: start;
+         /* Aligns content to the top of the grid area */
+
+         background-color: var(--color-background-grey);
+         /* Keeps background consistent */
+         padding: 40px 0;
+         margin: 40px auto;
+     }
+
+     .about-text-block {
+         margin-left: -2rem;
+     }
+
+     .about-image-box {
+
+         margin-left: -1rem;
+     }
+
+     .about-section img {
+         width: 100%;
+         height: auto;
+         margin-left: -2rem;
+     }
+
+     .about-section p {
+         max-width: 600px;
+         margin: 25px;
+         line-height: 1.9;
+         font-size: 1.1em;
+     }
+
+     .reservation-callout h2 {
+         font-size: clamp(2rem, 2vw, 2rem);
+     }
+
+     .service-card img {
+         width: 100%;
+         height: 220px;
+         object-fit: cover;
+         display: block;
+     }
+
+     .service-card h3 {
+         font-size: clamp(1.3rem, 2vw, 1.7rem);
+         color: var(--color-primary);
+         margin-top: 1rem;
+     }
+
+     .service-card p {
+         font-size: 1rem;
+         line-height: 1.5;
+         padding: 0 1rem 1.5rem 1rem;
+     }
+
+     .service-details img {
+         width: 100%;
+         height: auto;
+         max-width: 100%;
+         display: block;
+         margin-top: 4rem;
+     }
+
+     .service-details p {
+         max-width: 600px;
+         margin: 0 auto 1rem auto;
+         line-height: 1.6;
+         font-size: 1rem;
+         padding: 1rem;
+     }
+
+   main h2 {
+    font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+    text-align: center;
+    margin-top: 3rem;
+}
+
+main h3 {
+    font-size: clamp(1.3rem, 2vw, 1.6rem);
+    text-align: center;
+    margin-top: 2.5rem;
+    margin-bottom: -0.3rem;
+}
+
+h4 {
+    font-size: clamp(1.1rem, 1.5vw, 1.2rem);
+    text-align: center;
+    margin-top: 1.2rem;
+}
+
+     /* Footer Layout (Wireframe Bottom Row) */
+     footer {
+         grid-template-columns: 1.5fr 1fr 1fr 1fr;
+         text-align: left;
+     }
+
+     footer p {
+         margin: 0;
+     }
+
+     /* --- Form Page Styling --- */
+     .reservation-form fieldset {
+         display: grid;
+         grid-template-columns: 1fr 2fr;
+         gap: 15px;
+         align-items: center;
+     }
+ }
